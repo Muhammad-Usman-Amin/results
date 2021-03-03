@@ -11,10 +11,10 @@ $StudentsMarks = [
     new Student("AZAN UL HAQ", 779, [2, 3, 4]), new Student("AKBAR HUSSAIN", 780, [1, 2, 2]), new Student("SYED NADEEM NASAR", 781, [1, 2, 3]),
     new Student("OBAIDULLAH", 782, [-1, -1, -1]), new Student("IHSAN ULLAH KHAN", 783, [1, 2, 2]), new Student("MISBAH UD DIN", 784, [1, 2, 2]),
     new Student("SAPNA AAMIR", 785, [1, 2, 2]), new Student("SHAHID HUSSAIN", 786, [2, 3, 4]), new Student("DAWOOD AHMAD", 787, [2, 3, 3]),
-    new Student("USMAN ALI", 788, [2, 3, 3]), new Student("HAMZA ALAM SHAH", 789, [0, 1, 1]), new Student("SAMIULLAH", 790, [2, 3, 3]),
+    new Student("USMAN ALI", 788, [2, 3, 3]), new Student("HAMZA ALAM SHAH", 789, [0, 0, 0]), new Student("SAMIULLAH", 790, [2, 3, 3]),
     new Student("NAVEED HUSSAIN", 791, [2, 3, 3]), new Student("ABDULLAH", 792, [1, 2, 2]), new Student("TAUSIF KHAN", 793, [2, 3, 3]),
-    new Student("YOUSUF KHAN", 794, [2, 3, 4]), new Student("NADEEM ULLAH", 795, [1, 2, 2]), new Student("ISLAM HUSSAIN", 796, [0, 1, 1]),
-    new Student("BILAL KHAN", 797, [2, 3, 3]), new Student("NUMAN KHAN", 798, [2, 3, 4]), new Student("HAROON HAYAT", 799, [1, 2, 2]),
+    new Student("YOUSUF KHAN", 794, [2, 3, 4]), new Student("NADEEM ULLAH", 795, [1, 2, 2]), new Student("ISLAM HUSSAIN", 796, [0, 0, 1]),
+    new Student("BILAL KHAN", 797, [2, 3, 3]), new Student("NUMAN KHAN", 798, [2, 3, 4]), new Student("HAROON HAYAT", 799, [1, 1, 2]),
     new Student("ABDULLAH GUL", 800, [2, 3, 3]), new Student("NAVEED KHAN", 801, [1, 1, 2]), new Student("SALMAN AHMAD", 802, [1, 2, 2]),
     new Student("MUHAMMAD AYAZ KHAN", 803, [2, 3, 3]), new Student("TARIQ ULLAH", 804, [1, 1, 2]), new Student("HILAL AHMAD", 805, [2, 3, 3]),
     new Student("JUNAID AHMAD", 806, [1, 2, 2]), new Student("MUHAMMAD KASHIF KHAN", 807, [2, 3, 3]), new Student("SHER ALAM KHAN", 808, [-1, -1, -1]),
@@ -22,7 +22,7 @@ $StudentsMarks = [
     new Student("MUHAMMAD USMAN", 812, [1, 1, 1]), new Student("SAMIULLAH", 813, [2, 2, 2]), new Student("SHAFIULLAH KHAN", 814, [2, 3, 3]),
     new Student("NOOR ZADA", 815, [2, 2, 2]), new Student("MUHAMMAD ILYAS", 816, [2, 2, 3]), new Student("EJAZ ULLAH", 816, [1, 2, 2])
 ];
-    var_dump(Positions::$studentMarks);
+    Positions::calculatePostions(Positions::$studentMarks);
 
 ?>
 
@@ -62,21 +62,26 @@ $StudentsMarks = [
                     <th scope="col">Information Security</th>
                     <th scope="col">Web Technologies</th>
                     <th scope="col">Computer Architecture</th>
+                    <th scope="col">Total Marks</th>
                     <th scope="col">GPA</th>
                     <th scope="col">Grade</th>
-                    <th scope="col">Total Marks</th>
+                    <th scope="col">Position</th>
                 </tr>
             </thead>
             <?php foreach ($StudentsMarks as $student) : ?>
-                <tr>
+                <tr <?php $pos=''; if($student->totalMarks == Positions::$studentMarks[0]) {echo 'class="table-success"'; $pos = "Ist";} 
+                elseif ($student->totalMarks == Positions::$studentMarks[1]) { echo 'class="table-success"'; $pos = "2nd";}
+                elseif ($student->totalMarks == Positions::$studentMarks[2]) {echo 'class="table-success"'; $pos = "3rd";}
+                ?> >
                     <td scope="row"><?php echo $student->rollNumber; ?> </td>
                     <td><?php echo $student->name; ?> </td>
                     <td><?php echo $student->subjectMarks["Information Security"]; ?> </td>
                     <td><?php echo $student->subjectMarks["Web Technologies"]; ?> </td>
                     <td><?php echo $student->subjectMarks["Computer Architecture"]; ?> </td>
-                    <td><?php printf("%.2f", $student->gpa); ?> </td>
-                    <td><?php echo $student->grade ?> </td>
                     <td><?php echo $student->totalMarks; ?> /300</td>
+                    <td><?php printf("%.2f", $student->gpa); ?> </td>
+                    <td><?php echo $student->grade; ?> </td>
+                    <td><?php echo $pos; ?> </td>
                 </tr>
             <?php
             endforeach;
