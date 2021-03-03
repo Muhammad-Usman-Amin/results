@@ -39,7 +39,8 @@ $StudentsMarks = [
 </head>
 
 
-<body style="margin: 30px; border-style: dotted;">
+<body>
+<div style="margin: 30px; border-style: dotted;">
     <div class="container" style="margin-top: 70px;">
         <img src="UOMlogo.png" alt="University of Malakand Logo" style="float: left; width:200px; height: 170px ">
         <center>
@@ -51,7 +52,8 @@ $StudentsMarks = [
         </center>
 
 
-        <button style="float: right;" type="button" class="btn btn-warning pull-left" onclick="print()">Print</button>
+        <button style="float: right; margin-left:5px;" type="button" class="btn btn-warning pull-left" onclick="print()">Print</button>
+        <a href="https://github.com/Muhammad-Usman-Amin/results.git" style="float: right;" class="btn btn-success pull-left">Source Code</a>
         <br>
         <hr color="gray">
         <table class="table table-hover table-bordered table-sm">
@@ -87,25 +89,25 @@ $StudentsMarks = [
             endforeach;
             ?>
         </table>
-        <br>
-        <p font-size="3">The result is declared as a notice only. It does not in itself confer any right or privilege
-            of a candidate unless a degree/Certificate is awarded in this respect. Further more errors and omissions in the result are
-            subject to subsequent rectification whenever and wherever detected.
-        </p>
-        <br>
-        <div style="float: left;">
-            <h6><b>Examination held on:    <u>17-Feb-2021</u></b></h6>
-            <h6><b>Result Declared on:     <u>26-Feb-2021</u></b></h6>
-        </div>
-        <center>
-            <div style="float: right;">
-                <h6><b>Chairman</b></h6>
-                <h6><b>Department of Computer Science and IT</b></h6>
-                <h6><b>University of Malakand</b></h6>
-            </div>
-        </center>  
         
+        
+        <center>
+            <p font-size="3">The result is declared as a notice only. It does not in itself confer any right or privilege
+                of a candidate unless a degree/Certificate is awarded in this respect. Further more errors and omissions in the result are
+                subject to subsequent rectification whenever and wherever detected.
+                <br>
+                <font style="float: left;">
+                    <b>Examination held on:    <u>17-Feb-2021</u><br>
+                    Result Declared on:     <u>26-Feb-2021</u></b>
+                </font>
+                
+                <font style="float: right;"><b>Chairman<br>
+                Department of Computer Science and IT<br>
+                University of Malakand</b></font>
+            </p>
+        </center>
     </div>
+</div>
     
     <!--
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/6.3.1/js/bootstrap.min.js" 
