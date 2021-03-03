@@ -15,6 +15,7 @@ class Student{
         //$this->subject = $subject;
         $this->generateMarks($this->tier);
         $this->totalMarks($this->subjectMarks);
+        Positions::$studentMarks[] = $this->totalMarks;
     }
     public function generateMarks($tier){
         $Grades = ["Outstanding", "Excellent", "VeryGood", "Good", "Fair"];
@@ -61,21 +62,19 @@ class Student{
                 $this->subjectMarks["Computer Architecture"] =  mt_rand(10, 50); 
                 $this->grade = $Grades[4]; break;
             case -1:
-                $this->marks = "<i>null<i>";
-                $this->subjectMarks["Information Security"] =  "<i>null<i>";
-                $this->subjectMarks["Web Technologies"] =  "<i>null<i>";
-                $this->subjectMarks["Computer Architecture"] =  "<i>null<i>"; 
-                $this->grade = "<i>null<i>";
-                $this->gpa = -1; break;
+                $this->marks = "<i>null</i>";
+                $this->subjectMarks["Information Security"] =  "<i>null</i>";
+                $this->subjectMarks["Web Technologies"] =  "<i>null</i>";
+                $this->subjectMarks["Computer Architecture"] =  "<i>null</i>"; 
+                $this->grade = "<i>null</i>";
+                $this->gpa = "<i>null</i>"; break;
         }
-        if($this->gpa != -1){
+        if($this->gpa != "<i>null</i>"){
             if ($this->gpa = round((($this-> marks) * 4) / 85, 2) > 4)
             $this->gpa = 4.00;
             else $this->gpa = round((($this-> marks) * 4) / 85, 2);
         }
-         if($this->gpa == -1){
-            $this->gpa = "<i>null<i>";
-         }
+
     }
     public function totalMarks($subMarks){
         $totalMarks=null;

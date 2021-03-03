@@ -4,6 +4,7 @@
 -->
 <?php
 include_once('students.php');
+include_once('Positions.php');
 
 $StudentsMarks = [
     new Student("Waqar Khan", 718, [2, 2, 3]), new Student("Abid Ali Khan", 725, [3, 3, 4]), new Student("ZIAULLAH KHAN", 778, [0, 1, 1]),
@@ -18,9 +19,10 @@ $StudentsMarks = [
     new Student("MUHAMMAD AYAZ KHAN", 803, [2, 3, 3]), new Student("TARIQ ULLAH", 804, [1, 1, 2]), new Student("HILAL AHMAD", 805, [2, 3, 3]),
     new Student("JUNAID AHMAD", 806, [1, 2, 2]), new Student("MUHAMMAD KASHIF KHAN", 807, [2, 3, 3]), new Student("SHER ALAM KHAN", 808, [-1, -1, -1]),
     new Student("ABDULLAH", 809, [-1, -1, -1]), new Student("ASAD ALI", 810, [1, 1, 2]), new Student("ATIF AHMAD", 811, [1, 2, 2]),
-    new Student("MUHAMMAD USMAN", 812, [1, 1, 2]), new Student("SAMIULLAH", 813, [1, 2, 2]), new Student("SHAFIULLAH KHAN", 814, [2, 3, 3]),
-    new Student("NOOR ZADA", 815, [1, 2, 2]), new Student("MUHAMMAD ILYAS", 816, [2, 2, 3]), new Student("EJAZ ULLAH", 816, [1, 2, 2])
+    new Student("MUHAMMAD USMAN", 812, [1, 1, 1]), new Student("SAMIULLAH", 813, [2, 2, 2]), new Student("SHAFIULLAH KHAN", 814, [2, 3, 3]),
+    new Student("NOOR ZADA", 815, [2, 2, 2]), new Student("MUHAMMAD ILYAS", 816, [2, 2, 3]), new Student("EJAZ ULLAH", 816, [1, 2, 2])
 ];
+    var_dump(Positions::$studentMarks);
 
 ?>
 
